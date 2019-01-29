@@ -1,6 +1,6 @@
 # Azure Route Table Module
 
-This module create all required resources for deploy a route table and the associated routes to be used in a Kubernetes Cluster.
+This module create all required resources for deploy a route table and the associated routes on Azure.
 
 ## Usage
 
@@ -8,11 +8,10 @@ This module create all required resources for deploy a route table and the assoc
 module "az_lb" {
   source = "https://github.com/walmartdigital/k8s-rt-module.git?ref=0.0.1"
 
-  resource_group = "my-resource-group"
-  cluster_name   = "my-cluster-name"
-  environment    = "staging"
-  name_suffix    = "abc123"
-
+  resource_group         = "my-resource-group"
+  environment            = "staging"
+  vnet_name              = "my-vnet"
+  subnet_name            = "my-subnet"
   route_table_name       = "my-route-table"
   route_names            = ["route1", "route2", "route3"]
   route_prefixes         = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
@@ -23,11 +22,12 @@ module "az_lb" {
 
 ## Arguments
 
-* **resource_group**: A string representing the resource group where all resources will be provisioned (required).
-* **cluster_name**: A string used as the name of the cluster.
-* **environment**: A string used as environment where the cluster is deployed.
-* **name_suffix**: A string used as name suffix (type: string).
-* **route_table_name**: A string used as the name of the RouteTable being created.
+* **resource_group**: A string representing the resource group where all resources will be provisioned, this resource group needs to be previously created (required).
+* **environment**: A string used as environment where the cluster is deployed (required).
+* **name_suffix**: A string used as name suffix (required).
+* **vnet_name**: A string used as Virtual Network name, to be associated with the route table (required).
+* **subnet_name**: A string used as Subnet name, to be associated with the route table (required).
+* **route_table_name**: A string used as the name of the RouteTable being created (required).
 * **disable_bgp_route_propagation**: Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable and that's the default.
 * **route_names**: A list of public subnets inside the vNet.
 * **route_prefixes**: The list of address prefixes to use for each route.
