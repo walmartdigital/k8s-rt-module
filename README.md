@@ -1,12 +1,12 @@
 # Azure Route Table Module
 
-This module create all required resources for deploy a route table and the associated routes on Azure.
+This module create all required resources for deploy a Route Table and the associated routes on Azure.
 
 ## Usage
 
 ```bash
-module "az_lb" {
-  source = "https://github.com/walmartdigital/k8s-rt-module.git?ref=0.0.1"
+module "az_rt" {
+  source = "git::https://github.com/walmartdigital/k8s-rt-module.git?ref=0.1.0"
 
   resource_group         = "my-resource-group"
   environment            = "staging"
