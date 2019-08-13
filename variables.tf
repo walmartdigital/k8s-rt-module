@@ -1,48 +1,48 @@
 variable "resource_group" {
-  type = "string"
+  type = string
 }
 
 variable "environment" {
-  type = "string"
+  type = string
 }
 
 variable "name_suffix" {
-  type = "string"
+  type = string
 }
 
 variable "vnet_name" {
-  type = "string"
+  type = string
 }
 
 variable "subnet_name" {
-  type = "string"
+  type = string
 }
 
 variable "route_table_name" {
-  type = "string"
+  type = string
 }
 
 variable "disable_bgp_route_propagation" {
-  type    = "string"
+  type    = string
   default = "true"
 }
 
 variable "route_names" {
-  type    = "list"
+  type    = list(string)
   default = ["subnet1"]
 }
 
 variable "route_prefixes" {
-  type    = "list"
+  type    = list(string)
   default = ["10.0.1.0/24"]
 }
 
-variable route_nexthop_types {
-  type    = "list"
+variable "route_nexthop_types" {
+  type    = list(string)
   default = ["VnetLocal"]
 }
 
-variable next_hop_in_ip_address {
-  type    = "list"
+variable "next_hop_in_ip_address" {
+  type    = list(string)
   default = []
 }
