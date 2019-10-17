@@ -2,14 +2,6 @@ variable "resource_group" {
   type = string
 }
 
-variable "environment" {
-  type = string
-}
-
-variable "name_suffix" {
-  type = string
-}
-
 variable "vnet_name" {
   type = string
 }
@@ -29,17 +21,17 @@ variable "disable_bgp_route_propagation" {
 
 variable "route_names" {
   type    = list(string)
-  default = ["subnet1"]
+  default = []
 }
 
 variable "route_prefixes" {
   type    = list(string)
-  default = ["10.0.1.0/24"]
+  default = []
 }
 
 variable "route_nexthop_types" {
   type    = list(string)
-  default = ["VnetLocal"]
+  default = []
 }
 
 variable "next_hop_in_ip_address" {

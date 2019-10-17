@@ -9,7 +9,6 @@ module "az_rt" {
   source = "git::https://github.com/walmartdigital/k8s-rt-module.git?ref=0.1.0"
 
   resource_group         = "my-resource-group"
-  environment            = "staging"
   vnet_name              = "my-vnet"
   subnet_name            = "my-subnet"
   route_table_name       = "my-route-table"
@@ -23,8 +22,6 @@ module "az_rt" {
 ## Arguments
 
 * **resource_group**: A string representing the resource group where all resources will be provisioned, this resource group needs to be previously created (required).
-* **environment**: A string used as environment where the cluster is deployed (required).
-* **name_suffix**: A string used as name suffix (required).
 * **vnet_name**: A string used as Virtual Network name, to be associated with the route table (required).
 * **subnet_name**: A string used as Subnet name, to be associated with the route table (required).
 * **route_table_name**: A string used as the name of the RouteTable being created (required).

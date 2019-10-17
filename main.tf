@@ -13,7 +13,7 @@ data "azurerm_subnet" "subnet" {
 }
 
 resource "azurerm_route_table" "route_table" {
-  name                          = "${var.route_table_name}-${var.environment}-${data.azurerm_resource_group.main.location}-${var.name_suffix}"
+  name                          = var.route_table_name
   location                      = data.azurerm_resource_group.main.location
   resource_group_name           = data.azurerm_resource_group.main.name
   disable_bgp_route_propagation = var.disable_bgp_route_propagation
