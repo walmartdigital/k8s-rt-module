@@ -31,5 +31,5 @@ resource "azurerm_route" "route" {
   route_table_name       = azurerm_route_table.route_table.name
   address_prefix         = var.route_prefixes[count.index]
   next_hop_type          = var.route_nexthop_types[count.index]
-  next_hop_in_ip_address = var.route_nexthop_types[count.index] == "VirtualAppliance" ? var.next_hop_in_ip_address[count.index] : ""
+  next_hop_in_ip_address = var.route_nexthop_types[count.index] == "VirtualAppliance" ? var.next_hop_in_ip_address[count.index] : null
 }
